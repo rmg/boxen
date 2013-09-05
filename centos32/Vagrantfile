@@ -1,0 +1,29 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION ||= "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.provider :digital_ocean do |provider, override|
+    provider.image = 'CentOS 6.4 x32'
+    override.vm.box = 'digital_ocean'
+    override.vm.box_url = "../digital_ocean.box"
+  end
+
+  config.vm.provider :aws do |aws, override|
+    # CentOS 6.4 32-bit
+    aws.region_config 'us-east-1', :ami => 'ami-c35021aa'
+    aws.region_config 'us-west-2', :ami => 'ami-4fbf2f7f'
+    aws.region_config 'us-west-1', :ami => 'ami-53456c16'
+    aws.region_config 'eu-west-1', :ami => 'ami-89180afd'
+    aws.region_config 'ap-southeast-1', :ami => 'ami-42f5bb10'
+    aws.region_config 'ap-southeast-2', :ami => 'ami-9d52c1a7'
+    aws.region_config 'ap-northeast-1', :ami => 'ami-99fa7098'
+    aws.region_config 'sa-east-1', :ami => 'ami-a465c0b9'
+
+    override.vm.box = 'aws'
+    override.vm.box_url = '../aws.box'
+  end
+  config.ssh.username = "strongloop"
+end
