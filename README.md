@@ -1,4 +1,4 @@
-== Vagrant Boxen
+## Vagrant Boxen
 
 Vagrant is a handy command-line tool for spinning up and connecting to a
 virtual machine.
@@ -16,7 +16,7 @@ Rackspace.
  * `vagrant destroy`
 
 
-=== Plugins
+### Plugins
 
  * [vagrant-digitalocean](https://github.com/smdahlen/vagrant-digitalocean)
  * [vagrant-aws](https://github.com/mitchellh/vagrant-aws)
@@ -24,7 +24,7 @@ Rackspace.
    * not used yet, patches welcome
 
 
-=== Vagrantfile
+### Vagrantfile
 
 Use the following examples to adjust `~/.vagrant.d/Vagrantfile` according to your preferneces:
 
